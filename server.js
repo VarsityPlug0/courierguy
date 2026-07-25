@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs');
 const { v4: uuidv4 } = require('uuid');
 
 const app = express();
-const PORT = 4500;
+const PORT = process.env.PORT || 4500;
 const DATA = path.join(__dirname, 'data');
 
 // ── Helpers ──────────────────────────────────────────────────
@@ -29,7 +29,7 @@ async function seed() {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/public', express.static(path.join(__dirname, 'public')));
-app.use(session({ secret: 'cg-secret-2026', resave: false, saveUninitialized: false, cookie: { maxAge: 86400000 } }));
+app.use(session({ secret: process.env.SESSION_SECRET || 'cg-secret-2026', resave: false, saveUninitialized: false, cookie: { maxAge: 86400000 } }));
 
 // Logo upload
 const upload = multer({

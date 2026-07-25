@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: courierguy
+    plan: free
+    env: node
+    buildCommand: npm ci
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
