@@ -129,7 +129,7 @@
     .footer-links { display: flex; gap: 20px; }
 
     /* ── Auth Modal ── */
-    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 1000; display: none; align-items: center; justify-content: center; }
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 16px; }
     .modal-overlay.open { display: flex; }
     .modal { background: #fff; border-radius: 16px; padding: 40px; width: 100%; max-width: 420px; position: relative; }
     .modal h2 { font-size: 22px; font-weight: 800; color: #1a3a6b; margin-bottom: 6px; }
@@ -146,6 +146,63 @@
     .btn-full:hover { opacity: .88; }
     .modal-error { background: #fee2e2; color: #991b1b; padding: 10px 14px; border-radius: 8px; font-size: 13px; margin-bottom: 14px; display: none; }
     .modal-error.show { display: block; }
+
+    /* ── Hamburger ── */
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #1a3a6b; border-radius: 2px; transition: all .25s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── Mobile Nav Drawer ── */
+    .mobile-nav { display: none; flex-direction: column; background: #fff; border-top: 1px solid #e8eef4; padding: 12px 0; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav-item { padding: 12px 24px; color: #1a3a6b; font-weight: 600; font-size: 15px; border-bottom: 1px solid #f0f4f8; cursor: default; }
+    .mobile-nav-sub { padding: 8px 36px; color: #4a6fa5; font-size: 14px; background: #f8fafc; cursor: default; }
+    .mobile-auth { display: flex; gap: 10px; padding: 14px 24px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      nav { padding: 12px 20px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      footer { padding: 40px 20px 0; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .follow-section { padding: 24px 20px; }
+      .follow-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .footer-bottom { padding: 16px 20px; }
+      .footer-bottom-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .nav-auth { display: none; }
+      .slide { padding: 50px 40px; min-height: 220px; }
+      .slide h2 { font-size: 26px; }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 10px 16px; }
+      .logo img { height: 50px; }
+      .hero { padding: 50px 16px 60px; }
+      .hero h1 { font-size: 26px; text-align: center; }
+      .track-form { flex-direction: column; width: 100%; gap: 10px; }
+      .track-form input { width: 100%; border-right: 2px solid #cfdce9; border-radius: 40px; padding: 15px 22px; }
+      .track-form input:focus { border-color: #1a3a6b; }
+      .track-form button { width: 100%; border-radius: 40px; padding: 15px; }
+      .result-section { padding: 0 12px; }
+      .result-header { flex-direction: column; gap: 12px; }
+      .result-meta { grid-template-columns: 1fr; }
+      .meta-item { border-right: none; border-bottom: 1px solid #e8eef4; }
+      .meta-item:last-child { border-bottom: none; }
+      .result-header, .timeline, .result-meta .meta-item { padding: 18px 18px; }
+      .slide { padding: 36px 20px; min-height: auto; }
+      .slide h2 { font-size: 20px; }
+      .slide p { font-size: 14px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .footer-bottom-inner { gap: 6px; }
+      .footer-links { flex-wrap: wrap; gap: 12px; }
+      .modal { padding: 28px 20px; border-radius: 12px; }
+      .contact-band p { font-size: 15px; }
+      .whistle-bar { font-size: 12px; padding: 10px 14px; }
+      .top-banner { font-size: 12px; padding: 7px 12px; }
+    }
   </style>
 </head>
 <body>
@@ -164,7 +221,11 @@
       <button class="btn-nav btn-nav-outline" onclick="openModal('login')">Login</button>
       <button class="btn-nav btn-nav-fill" onclick="openModal('register')">Register</button>
     </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="mobile-nav" id="mobileNav"></div>
 </header>
 
 <!-- HERO -->
@@ -263,6 +324,40 @@ const CHECK_SVG = '<path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.
 
 let currentUser = null;
 let carouselCurrent = 0, carouselTotal = 0, autoSlide;
+
+// ── Mobile Nav ───────────────────────────────────────────────
+function toggleMobileNav() {
+  const nav = document.getElementById('mobileNav');
+  const btn = document.getElementById('hamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+
+function buildMobileNav(menus) {
+  const nav = document.getElementById('mobileNav');
+  let html = '';
+  Object.entries(menus).forEach(([label, items]) => {
+    html += `<div class="mobile-nav-item">${label}</div>`;
+    items.forEach(i => { html += `<div class="mobile-nav-sub">${i.label}</div>`; });
+  });
+  html += `<div class="mobile-auth" id="mobileAuth">
+    <button class="btn-nav btn-nav-outline" onclick="openModal('login')">Login</button>
+    <button class="btn-nav btn-nav-fill" onclick="openModal('register')">Register</button>
+  </div>`;
+  nav.innerHTML = html;
+}
+
+function updateMobileAuth() {
+  const el = document.getElementById('mobileAuth');
+  if (!el) return;
+  if (currentUser) {
+    el.innerHTML = `<span class="auth-user" style="padding:4px 0">👤 ${currentUser.name}</span>
+      <button class="btn-nav btn-nav-outline" onclick="doLogout()">Logout</button>`;
+  } else {
+    el.innerHTML = `<button class="btn-nav btn-nav-outline" onclick="openModal('login')">Login</button>
+      <button class="btn-nav btn-nav-fill" onclick="openModal('register')">Register</button>`;
+  }
+}
 
 // ── Carousel ─────────────────────────────────────────────────
 function goToSlide(n) {
@@ -392,6 +487,7 @@ function updateNavAuth() {
     el.innerHTML = `<button class="btn-nav btn-nav-outline" onclick="openModal('login')">Login</button>
       <button class="btn-nav btn-nav-fill" onclick="openModal('register')">Register</button>`;
   }
+  updateMobileAuth();
 }
 
 // Close modal on overlay click
@@ -421,6 +517,7 @@ async function render() {
       <span>${label} <svg class="arrow-icon" viewBox="0 0 448 512"><path d="M207 381L13 187c-9-9-9-25 0-34l23-23c9-9 25-9 34 0L224 285l155-155c9-9 25-9 34 0l23 23c9 9 9 25 0 34L241 381c-9 9-25 9-34 0z"/></svg></span>
       <ul class="dropdown">${items.map(i=>`<li><span>${i.label}</span></li>`).join('')}</ul>
     </li>`).join('');
+  buildMobileNav(menus);
 
   // Hero
   document.getElementById('heroTitle').textContent = c.hero.title;
