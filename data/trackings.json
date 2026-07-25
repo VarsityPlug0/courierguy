@@ -9,13 +9,13 @@
     "origin": "",
     "destination": "10 Huilbos Street, Weltevreden Park",
     "status": "Pending",
-    "createdAt": "2026-07-25T08:58:14.995Z",
-    "updatedAt": "2026-07-25T08:58:14.995Z",
+    "createdAt": "2026-07-25T10:00:00.000Z",
+    "updatedAt": "2026-07-25T10:00:00.000Z",
     "history": [
       {
         "status": "Pending",
         "location": "",
-        "timestamp": "2026-07-25T08:58:14.995Z",
+        "timestamp": "2026-07-25T10:00:00.000Z",
         "note": "Parcel order created"
       }
     ]
