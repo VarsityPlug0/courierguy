@@ -1,0 +1,105 @@
+{
+  "banner": {
+    "text": "STAY UP TO DATE WITH OUR LATEST NEWS AND ALERTS!",
+    "visible": true
+  },
+  "hero": {
+    "title": "Track my parcel",
+    "placeholder": "Waybill number",
+    "buttonText": "Track Now"
+  },
+  "nav": {
+    "shipping": [
+      { "label": "Ship Now", "url": "https://thecourierguy.co.za/ship-now/" },
+      { "label": "Get a Quote", "url": "https://portal.thecourierguy.co.za/shipments/new?quick_quote=quote" },
+      { "label": "Business Services", "url": "https://thecourierguy.co.za/business-courier-services/" },
+      { "label": "Register Now", "url": "https://portal.thecourierguy.co.za/register" }
+    ],
+    "tracking": [
+      { "label": "Track my Parcel", "url": "https://thecourierguy.co.za/tracking/" }
+    ],
+    "support": [
+      { "label": "Contact Us", "url": "https://thecourierguy.co.za/contact-us/" },
+      { "label": "Help Me", "url": "https://thecourierguy.co.za/help-me/" },
+      { "label": "Locations", "url": "https://thecourierguy.co.za/locations/" },
+      { "label": "FAQs", "url": "https://thecourierguy.co.za/faqs/" },
+      { "label": "Integrations", "url": "https://thecourierguy.co.za/business-courier-services/#integrations" },
+      { "label": "Alerts", "url": "https://thecourierguy.co.za/alerts/" }
+    ],
+    "login": [
+      { "label": "Direct", "url": "https://portal.thecourierguy.co.za/" },
+      { "label": "Locker", "url": "https://thecourierguy.co.za/locker-courier-services/" },
+      { "label": "Kiosk", "url": "https://thecourierguy.co.za/kiosk-courier-services/" },
+      { "label": "Point", "url": "https://thecourierguy.co.za/point-courier-services/" }
+    ]
+  },
+  "carousel": [
+    {
+      "id": "slide1",
+      "title": "You probably<br>know a guy",
+      "body": "If you think you're seeing us everywhere… It's because we are! We've got South Africa covered with over 2500 drivers, 22 depots, 200 Kiosks, and 1200 parcel Lockers. Whether it's big business or your Vellies side hustle, no parcel is too big or small for us to handle."
+    },
+    {
+      "id": "slide2",
+      "title": "4 ways,<br>choose yours",
+      "body": "So much to choose from; even Oom would approve! Whether you use our parcel Lockers for easy drop-off and pick-up, choose our Parcel Point partners or Kiosks, or use our direct service for door-to-door delivery, we ship your goods on time and on your terms."
+    },
+    {
+      "id": "slide3",
+      "title": "Global reach,<br>local touch",
+      "body": "Local experts with global connections. At The Courier Guy, we deliver world-class service with that unmistakable South African charm. Whether it's documents or goods, we've got your international shipping sorted."
+    }
+  ],
+  "contactBand": {
+    "text": "Got a question about your parcel? Contact us at",
+    "email": "support@thecourierguy.co.za",
+    "phone": "+27 86 120 3203",
+    "visible": true
+  },
+  "footer": {
+    "quickContact": {
+      "phone": "010 222 2300",
+      "email": "support@thecourierguy.co.za",
+      "address": "37 Malta Road, Cosmo Business Park, Malibongwe Drive, Kya Sands"
+    },
+    "company": [
+      { "label": "About Us", "url": "https://thecourierguy.co.za/about-us/" },
+      { "label": "Locations", "url": "https://thecourierguy.co.za/locations/" },
+      { "label": "Careers", "url": "https://thecourierguy.co.za/careers/" }
+    ],
+    "explore": [
+      { "label": "Client Portal", "url": "https://portal.thecourierguy.co.za/login" },
+      { "label": "Business Services", "url": "https://thecourierguy.co.za/business-courier-services/" },
+      { "label": "Order Packaging", "url": "https://thecourierguy.co.za/order-packaging/" },
+      { "label": "Packaging Guide", "url": "https://thecourierguy.co.za/packaging-guide/" }
+    ],
+    "services": [
+      { "label": "Track my Parcel", "url": "https://thecourierguy.co.za/tracking/" },
+      { "label": "Direct", "url": "https://thecourierguy.co.za/direct-courier-services/" },
+      { "label": "Locker", "url": "https://thecourierguy.co.za/locker-courier-services/" },
+      { "label": "Kiosk", "url": "https://thecourierguy.co.za/kiosk-courier-services/" }
+    ],
+    "support": [
+      { "label": "Contact Us", "url": "https://thecourierguy.co.za/contact-us/" },
+      { "label": "FAQs", "url": "https://thecourierguy.co.za/faqs/" },
+      { "label": "Help Me", "url": "https://thecourierguy.zendesk.com/hc/en-us/requests/new/" },
+      { "label": "Alerts", "url": "https://thecourierguy.co.za/alerts/" }
+    ],
+    "whatsappUrl": "https://api.whatsapp.com/send?phone=27828233254"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/TheCourierGuy/",
+    "twitter": "https://x.com/TheCourierGuy_",
+    "linkedin": "https://www.linkedin.com/company/the-courier-guy-sa/",
+    "instagram": "https://www.instagram.com/thecourierguy/",
+    "tiktok": "https://www.tiktok.com/@thecourierguy_",
+    "youtube": "https://www.youtube.com/@thecourierguy9586"
+  },
+  "whistleblower": {
+    "text": "Speak Up. We're Listening. To share your concern safely visit our whistleblowing info page",
+    "linkText": "here",
+    "linkUrl": "https://thecourierguy.co.za/speak-up-were-listening/",
+    "visible": true
+  },
+  "copyright": "The Courier Guy All Rights Reserved"
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "waybill": "TCG-001",
+    "customer": {
+      "name": "Customer",
+      "email": "",
+      "phone": "0763466325"
+    },
+    "origin": "",
+    "destination": "10 Huilbos Street, Weltevreden Park",
+    "status": "Pending",
+    "createdAt": "2026-07-25T08:58:14.995Z",
+    "updatedAt": "2026-07-25T08:58:14.995Z",
+    "history": [
+      {
+        "status": "Pending",
+        "location": "",
+        "timestamp": "2026-07-25T08:58:14.995Z",
+        "note": "Parcel order created"
+      }
+    ]
+  }
+]
